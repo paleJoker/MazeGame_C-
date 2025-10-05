@@ -45,7 +45,7 @@ void Map::ConfirmMap(int choice,char (*&CurrentMap)[16])
     CurrentMap = Map2;
 }
 
-void Map::Move(char (*CurrentMap)[16])
+void Map::Move(int &choice,char (*CurrentMap)[16])
 {   
     
     char key;
@@ -53,32 +53,40 @@ void Map::Move(char (*CurrentMap)[16])
     switch(key)
     {
         case 'w':
-            if(x>0 && CurrentMap[x-1][y] == ' ')
+            if(x>0 && (CurrentMap[x-1][y] == ' '||CurrentMap[x-1][y] == 'X'))
                 {
+                    if(CurrentMap[x-1][y] == 'X')
+                    player.TakeDamage(choice);
                     CurrentMap[x-1][y] = 'O';
                     CurrentMap[x][y] = ' ';
                     x--;
                 }
             break;
         case 'a':
-            if(y>0 && CurrentMap[x][y-1] == ' ')
+            if(y>0 && (CurrentMap[x][y-1] == ' '||CurrentMap[x][y-1] == 'X'))
                 {
+                    if(CurrentMap[x][y-1] == 'X')
+                    player.TakeDamage(choice);
                     CurrentMap[x][y-1] = 'O';
                     CurrentMap[x][y] = ' ';
                     y--;
                 }
             break;
         case 's':
-            if(x<9 && CurrentMap[x+1][y] == ' ')
+            if(x<9 && (CurrentMap[x+1][y] == ' '||CurrentMap[x+1][y] == 'X'))
                 {
+                    if(CurrentMap[x+1][y] == 'X')
+                    player.TakeDamage(choice);
                     CurrentMap[x+1][y] = 'O';
                     CurrentMap[x][y] = ' ';
                     x++;
                 }
             break;
         case 'd':
-            if(y<15 && CurrentMap[x][y+1] == ' ')
+            if(y<15 && (CurrentMap[x][y+1] == ' '||CurrentMap[x][y+1] == 'X'))
                 {
+                    if(CurrentMap[x][y+1] == 'X')
+                    player.TakeDamage(choice);
                     CurrentMap[x][y+1] = 'O';
                     CurrentMap[x][y] = ' ';
                     y++;
@@ -88,6 +96,9 @@ void Map::Move(char (*CurrentMap)[16])
             break;
     
     }
+    if(choice != 0)
+    {
     system("cls");
     MapShow(CurrentMap);
+    }
 }

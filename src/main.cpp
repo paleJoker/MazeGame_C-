@@ -10,9 +10,9 @@ int main()
         Maze maze;
         maze.Menu(choice,CurrentMap);
         
-        while(maze.JudgeWin(CurrentMap))
+        while(maze.JudgeWin(CurrentMap) && choice != 0)
         {
-            maze.map.Move(CurrentMap);
+            maze.map.Move(choice,CurrentMap);
         }
         std::cout<<"输入0再次进行游戏\n";
         std::cin>>choice;

@@ -1,7 +1,7 @@
 ﻿#include "Maze.h"
 #include "Map.h"
 
-void Maze::Menu(int choice,char (*&CurrentMap)[16])
+void Maze::Menu(int &choice,char (*&CurrentMap)[16])
 {
     std::cout<<"*************************************\n";
     std::cout<<"欢迎进行迷宫游玩\n";
