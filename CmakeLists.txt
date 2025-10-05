@@ -1,0 +1,17 @@
+﻿cmake_minimum_required(VERSION 4.0)
+
+project(Maze)
+
+include_directories(include)
+
+file(GLOB SOURCE_MAZE "src/*.cpp")
+
+add_executable(MazeGame ${SOURCE_MAZE})
+
+
+
+
+
+
+
+
