@@ -31,9 +31,10 @@ class Map
      "#   X   ###X ##",
      "      X#      #",
      "###############",};
+     int flag[10][16] = {0};
     void MapShow(char (*CurrentMap)[16]);
     void FindStart(char (*CurrentMap)[16]);
     void Move(int &choice,char (*CurrentMap)[16]);
     void ConfirmMap(int choice,char (*&CurrentMap)[16]);
-
+    void AddView();
 };

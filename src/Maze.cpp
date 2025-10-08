@@ -13,8 +13,10 @@ void Maze::Menu(int &choice,char (*&CurrentMap)[16])
     std::cout<<"*************************************\n";
     std::cin>>choice;
     map.ConfirmMap(choice,CurrentMap);
-    map.MapShow(CurrentMap);
     map.FindStart(CurrentMap);
+    map.AddView();
+    map.MapShow(CurrentMap);
+
 }
 
 int Maze::JudgeWin(char (*CurrentMap)[16])

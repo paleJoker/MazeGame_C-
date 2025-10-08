@@ -1,0 +1,10 @@
+^D:\RM_WORK\TRAINING\SECOND WEEK\SUANFA\MAZE\BUILD\CMAKEFILES\4DA9E99397400C87DFBC53F3BB97BB34\GENERATE.STAMP.RULE
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" "-SD:/RM_Work/Training/Second Week/SuanFa/Maze" "-BD:/RM_Work/Training/Second Week/SuanFa/Maze/build" --check-stamp-list CMakeFiles/generate.stamp.list --vs-solution-file "D:/RM_Work/Training/Second Week/SuanFa/Maze/build/Maze.sln"
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd

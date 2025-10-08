@@ -9,8 +9,15 @@ void Map::MapShow(char (*CurrentMap)[16])
     for(int i=0;i<10;i++)
     {
         for(int j=0;j<16;j++)
-            {
-                std::cout<<CurrentMap[i][j];
+            {   
+                if(flag[i][j] == 1)
+                {
+                    std::cout<<CurrentMap[i][j];
+                }
+                else
+                {
+                    std::cout<<' ';
+                }
             }
         std::cout<<"\n";
     }
@@ -47,7 +54,6 @@ void Map::ConfirmMap(int choice,char (*&CurrentMap)[16])
 
 void Map::Move(int &choice,char (*CurrentMap)[16])
 {   
-    
     char key;
     key = getch();
     switch(key)
@@ -96,9 +102,24 @@ void Map::Move(int &choice,char (*CurrentMap)[16])
             break;
     
     }
+    AddView();
     if(choice != 0)
     {
     system("cls");
     MapShow(CurrentMap);
+    }
+}
+
+void Map::AddView()
+{
+    for(int i = 0;i<5;i++)
+    {
+        for(int j = 0;j<5;j++)
+        {
+            if(x-2+i>=0 && x-2+i<10 && y-2+j>=0 &&y-2+j <15)
+            {
+                flag[x-2+i][y-2+j]=1;
+            }
+        }
     }
 }
